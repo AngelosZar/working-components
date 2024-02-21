@@ -1,0 +1,37 @@
+// User Stories
+// - As a user, I want to view a list of products on the homepage.
+// - As a user, I want to filter products by category, gender or genre.
+// - As a user, I want to view a single product page with more detail.
+// - As a user, I want to add a product to my basket.
+// - As a user, I want to remove a product from my basket.
+// - As a user, I want to view a summary of my cart on the checkout page.
+// - As a user, I want to view an order-confirmation screen after checking out.
+
+//                               api calls
+
+// Big picture
+// 1. Fetch data at the beginning and fetch it around
+// 2.create a js file to store all shared across functions and constands
+// 3. single responsibility prinsiple
+
+// steps that i followed
+// 1. create the
+// 2.
+// 3.
+// 4.
+// 5.
+
+// Analytically the proccess
+
+//                           build a cart/basket :
+//
+// 1. We should be able to add a product to the cart.
+// 2. We should be able to remove a product to the cart
+// 3. We should be able to clear the cart
+// 4. We should be able to get the total cost
+// 5. We should be able to check out the cart
+
+// Fetching data good prinsiple .
+// don not sore
+// normally each time that we refresh the page on an online store our site should fetch the data again.(in case of product is added ,deleted ,sold out )
+// However we have apps like redis , that handles chashing .stored local data at yor browser and is fetching anly to check if the chased data is updated .Way faster approach
