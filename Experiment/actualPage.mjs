@@ -13,7 +13,7 @@ import { doFetchData } from "./modules.mjs";
 function genProdHtml(raincoat) {
   //  generate html from the rainydays object
   console.log("raincoat");
-  productContainer = document.createElement("div");
+  const productContainer = document.createElement("div");
   const productTtl = document.createElement("h2");
   productTtl.textContent = raincoat.text;
   //   check maybe data.data.[1]
@@ -31,7 +31,8 @@ async function displayRainCoatsLi(rainCoats) {
   //   didplay/generate them in html
   //   displayContainer.appendChild
   //   callback function
-  rainCoats.forEach((rainDaProduct) => {
+  console.log(rainCoats.data);
+  rainCoats.data.forEach((rainCoat) => {
     const ProdHtml = genProdHtml(rainCoat);
     displayContainer.appendChild(ProdHtml);
   });
@@ -39,6 +40,7 @@ async function displayRainCoatsLi(rainCoats) {
 async function main() {
   try {
     const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
+    // const rainCoats = data;
     // or save to localstorage
     displayRainCoatsLi(rainCoats);
     console.log(raincoats);
