@@ -3,19 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rainy days-Home page</title>
+    <meta name="Rainy Days" content="Front page of rainy days jackets " />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/aea85badd7.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="modules.mjs"></script>
     <script type="module" src="actualPage.mjs"></script>
   </head>
-  <body>
+  <!-- -----------------------------  Header ----------------------------- -->
+  <header>
+    <a href="index.html">
+      <img src="" alt="Rainy days logo" />
+    </a>
+    <label for="menu-checkbox"><i class="fa-solid fa-bars fa-2x"></i></label>
+    <input type="checkbox" id="menu-checkbox" />
+    <nav>
+      <!-- <div id="nav-toggle"> -->
+      <ul class="menu">
+        <a href="html.files/forHim-forHer.html">
+          <li>For him</li>
+        </a>
+        <a href="html.files/forHim-forHer.html">
+          <li>For her</li>
+        </a>
+        <a href="html.files/contact-us.html">
+          <li>Contact us</li>
+        </a>
+        <a href="html.files/about-us.html">
+          <li>About us</li>
+        </a>
+        <a href="html.files/checkout-page.html">
+          <li>My cart</li>
+        </a>
+      </ul>
+    </nav>
+  </header>
+  <!-- ------------------------------------- Main section --------------------------- -->
+  <main>
     <h1>hello there ,</h1>
     <h1>Its working</h1>
     <h1>no its not ....</h1>
-    <div class="=item-list" id="display-container">
-      <h1 class="anH1"></h1>
-      <h2 class="anh2"></h2>
-      <h3 class="anh3"></h3>
-    </div>
+    <div class="=item-list" id="display-container"></div>
+    <!-- ------------------------------------- hero section --------------------------- -->
+    <section class="hero-block">
+      <div class="hero-content">
+        <h1>Pushing the comfort zone</h1>
+      </div>
+    </section>
+    <!-- --------------------------------- feel the rain section quote and img --------------------------- -->
+    <!-- add bAckquotes -->
+    <section class="rain-quote-image">
+      <blockquote>
+        Some people<br />feel the rain.<br />Others just get
+        <br />wet.<br />-Bob Marley
+      </blockquote>
+      <img
+        src="imgs/Front-Page/gage-walker-6LT0b6LmCt4-unsplash copy.jpg"
+        alt="girl enjoying the rain"
+      />
+    </section>
+    <section class="social-media-reviews">
+      <h3>Customer reviews from our social media</h3>
+      <div class="review-card-container">
+        <div class="review-card">
+          <div class="top-of-card">
+            <img
+              class="reviewer-img"
+              src="imgs/reviews-images/Pexels Photo by cottonbro studio-1.png"
+              alt="John Random photo"
+            />
+            <p class="reviewer-name">John Random</p>
+          </div>
+          <p class="review-text">Amazing quality for the price.</p>
+        </div>
+        <div class="review-card">
+          <div class="top-of-card">
+            <img
+              class="reviewer-img"
+              src="imgs/reviews-images/Pexels Photo by cottonbro studio-2.png"
+              alt="Elise Ann Dee photo"
+            />
+            <p class="reviewer-name">Elise Ann Dee</p>
+          </div>
+          <p class="review-text">
+            Get to know this brand from a friend.Simply loved it.
+          </p>
+        </div>
+
+        <div class="review-card">
+          <div class="top-of-card">
+            <img
+              class="reviewer-img"
+              src="imgs/reviews-images/Pexels Photo by cottonbro studio.jpg"
+              alt="Carolina Åsbjørnh photo"
+            />
+            <p class="reviewer-name">Carolina Åsbjørn</p>
+          </div>
+          <p class="review-text">Maybe not the prettiest but great quallity.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="top-of-card">
+            <img
+              class="reviewer-img"
+              src="imgs/reviews-images/Rectangle 198.png"
+              alt="Mateus Isdalho"
+            />
+            <p class="reviewer-name">Mateus Isdalho</p>
+          </div>
+          <p class="review-text">Definately value for money.</p>
+        </div>
+      </div>
+    </section>
+  </main>
   </body>
 </html>

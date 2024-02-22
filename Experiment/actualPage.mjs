@@ -9,39 +9,10 @@ import { doFetchData } from "./modules.mjs";
 //
 
 //
-// generate cat facthtml
-function genProdHtml(raincoat) {
-  //  generate html from the rainydays object
-  console.log("raincoat");
-  const productContainer = document.createElement("div");
-  const productTtl = document.createElement("h2");
-  productTtl.textContent = raincoat.text;
-  //   check maybe data.data.[1]
-  const productDescription = document.createElement("p");
-  productDescription.textContent = raincoat.description;
-  productContainer.append(productTtl, productDescription);
-  return productContainer;
-}
-async function displayRainCoatsLi(rainCoats) {
-  // 1. get the products
-  //  2.  get the display container
-  const displayContainer = document.querySelector("#display-container");
-  console.log(displayContainer);
-  // for each of the products
-  //   didplay/generate them in html
-  //   displayContainer.appendChild
-  //   callback function
-  console.log(rainCoats.data);
-  rainCoats.data.forEach((rainCoat) => {
-    const ProdHtml = genProdHtml(rainCoat);
-    displayContainer.appendChild(ProdHtml);
-  });
-}
-async function main() {
+// Fetching the array of products
+export async function fetchingProd() {
   try {
     const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
-    // const rainCoats = data;
-    // or save to localstorage
     displayRainCoatsLi(rainCoats);
     console.log(raincoats);
   } catch (error) {
@@ -49,14 +20,23 @@ async function main() {
   }
 }
 
-// another solution
-//  local storage . check if it exist in local storage and if not fetch it
-// async function handleApiData(){
-//     // . check local storage if produts exists
-//         if it does :
-//                 set jackets to be from local storage
-//           else
-//  fetch the games
-//  add them to the local Storage.
-// }
-main();
+//  generate html from the rainydays object
+function genProdHtml(raincoat) {
+  const productContainer = document.createElement("div");
+  const productTtl = document.createElement("h2");
+  productTtl.textContent = raincoat.text;
+  const productDescription = document.createElement("p");
+  productDescription.textContent = raincoat.description;
+  productContainer.append(productTtl, productDescription);
+  return productContainer;
+}
+// Display HTML to the DOM
+function displayRainCoatsLi(rainCoats) {
+  const displayContainer = document.querySelector("#display-container");
+  rainCoats.data.forEach((rainCoat) => {
+    const ProdHtml = genProdHtml(rainCoat);
+    displayContainer.appendChild(ProdHtml);
+  });
+}
+
+fetchingProd();
