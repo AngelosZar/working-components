@@ -20,7 +20,7 @@ export async function fetchingProd() {
   }
 }
 
-//  generate html from the rainydays object
+//  Generate html from the rainydays object
 function genProdHtml(raincoat) {
   const productContainer = document.createElement("div");
   const productTtl = document.createElement("h2");
