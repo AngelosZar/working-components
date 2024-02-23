@@ -6,7 +6,11 @@ import { baseApiUrl } from "./modules.mjs";
 import { rainyProdEndPoints } from "./modules.mjs";
 // Imported functions
 import { doFetchData } from "./modules.mjs";
-
+//      ------- Working on -------
+const createCart = function () {
+  console.log("yabadabadu");
+};
+//      ------- Working on -------
 //  generate html from the rainydays array
 function genProdHtml(raincoat) {
   // console.log(raincoat);
