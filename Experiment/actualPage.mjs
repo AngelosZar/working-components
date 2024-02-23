@@ -61,18 +61,44 @@ const addToCart = function (product) {
 }
 function genProdHtml(raincoat) {
   // console.log(raincoat);
-  const productContainer = document.createElement("div");
-  const productTtl = document.createElement("h2");
-  productTtl.textContent = raincoat.text;
+  //    ------- variables -------
+  const productCard = document.createElement("div");
+  const imgContForCard = document.createElement("div");
+  const textContainer = document.createElement("div");
+  const productTtl = document.createElement("p");
   const productDescription = document.createElement("p");
+  const productPrice = document.createElement("p");
+  // If I later filter with items on sale
+  // const isProductOnSale = "";
+  //                  insert image how?
+  const productImg = document.createElement("img");
+  // productImg.img.src = raincoat.image;
+  // delete the Rainy days from the title
+  //       ------- declaration from api -------
+  productTtl.textContent = raincoat.title;
   productDescription.textContent = raincoat.description;
-  productContainer.append(productTtl, productDescription);
-  return productContainer;
+  // Change the int of price to num
+  productPrice.textContent = raincoat.price;
+  //       ------- styles/classes and ids -------
+  productCard.classList.add("card");
+  imgContForCard.classList.add("card-image");
+  textContainer.classList.add("card-text-field");
+  productDescription.classList.add("product-txt");
+  productTtl.classList.add("product-ttl");
+  productPrice.classList.add("product-price");
+  //       ------- append and return -------
+  // to do
+  // 1. add imgs
+  // 2. create a div with class card-image
+  // 3. create a div with class card.
+  // 4. append card-image and card
+  textContainer.append(productTtl, productDescription, productPrice);
+  productCard.append(imgContForCard, textContainer);
+  return productCard;
 }
 // Display html to the DOM
 async function displayRainCoatsLi(rainCoats) {
   const displayContainer = document.querySelector("#display-container");
-  console.log(displayContainer);
   rainCoats.data.forEach((rainCoat) => {
     const ProdHtml = genProdHtml(rainCoat);
     displayContainer.appendChild(ProdHtml);
