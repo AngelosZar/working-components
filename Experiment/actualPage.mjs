@@ -27,6 +27,7 @@ async function displayRainCoatsLi(rainCoats) {
   //  2.  get the display container
   const displayContainer = document.querySelector("#display-container");
   console.log(displayContainer);
+
   // for each of the products
   //   didplay/generate them in html
   //   displayContainer.appendChild
