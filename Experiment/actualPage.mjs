@@ -62,12 +62,14 @@ const addToCart = function (product) {
 function genProdHtml(raincoat) {
   // console.log(raincoat);
   //    ------- variables -------
+  const prodCardContainer = document.createElement("section");
   const productCard = document.createElement("div");
   const imgContForCard = document.createElement("div");
   const textContainer = document.createElement("div");
   const productTtl = document.createElement("p");
   const productDescription = document.createElement("p");
   const productPrice = document.createElement("p");
+  const buyItem = document.createElement("button");
   // If I later filter with items on sale
   // const isProductOnSale = "";
   //                  insert image how?
@@ -77,9 +79,11 @@ function genProdHtml(raincoat) {
   //       ------- declaration from api -------
   productTtl.textContent = raincoat.title;
   productDescription.textContent = raincoat.description;
+  buyItem.textContent = "Add to cart ";
   // Change the int of price to num
   productPrice.textContent = raincoat.price;
   //       ------- styles/classes and ids -------
+  prodCardContainer.classList.add("content-container");
   productCard.classList.add("card");
   imgContForCard.classList.add("card-image");
   textContainer.classList.add("card-text-field");
@@ -92,9 +96,12 @@ function genProdHtml(raincoat) {
   // 2. create a div with class card-image
   // 3. create a div with class card.
   // 4. append card-image and card
-  textContainer.append(productTtl, productDescription, productPrice);
+
+  // if appending is correct like nesting
+  textContainer.append(productTtl, productDescription, productPrice, buyItem);
   productCard.append(imgContForCard, textContainer);
-  return productCard;
+  prodCardContainer.append(productCard);
+  return prodCardContainer;
 }
 // Display html to the DOM
 async function displayRainCoatsLi(rainCoats) {
