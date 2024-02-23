@@ -38,24 +38,34 @@ async function displayRainCoatsLi(rainCoats) {
   });
 }
 async function main() {
-  try {
-    const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
-    // or save to localstorage
-    displayRainCoatsLi(rainCoats);
-    console.log(raincoats);
-  } catch (error) {
-    console.error();
+  // Fetching the array of products
+  export async function fetchingProd() {
+    try {
+      const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
+      displayRainCoatsLi(rainCoats);
+      console.log(raincoats);
+    } catch (error) {
+      console.error();
+    }
   }
-}
 
-// another solution
-//  local storage . check if it exist in local storage and if not fetch it
-// async function handleApiData(){
-//     // . check local storage if produts exists
-//         if it does :
-//                 set jackets to be from local storage
-//           else
-//  fetch the games
-//  add them to the local Storage.
-// }
-main();
+  //  Generate html from the rainydays object
+  function genProdHtml(raincoat) {
+    const productContainer = document.createElement("div");
+    const productTtl = document.createElement("h2");
+    productTtl.textContent = raincoat.text;
+    const productDescription = document.createElement("p");
+    productDescription.textContent = raincoat.description;
+    productContainer.append(productTtl, productDescription);
+    return productContainer;
+  }
+  // Display HTML to the DOM
+  function displayRainCoatsLi(rainCoats) {
+    const displayContainer = document.querySelector("#display-container");
+    rainCoats.data.forEach((rainCoat) => {
+      const ProdHtml = genProdHtml(rainCoat);
+      displayContainer.appendChild(ProdHtml);
+    });
+  }
+
+  fetchingProd();
