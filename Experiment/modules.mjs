@@ -11,7 +11,7 @@ export async function doFetchData(url) {
     // start a loading spinner
     // const res = await axios.get("https://v2.api.noroff.dev/./rainy-days/");
     const res = await axios.get(url);
-    console.log(res.data);
+    console.log(res, res.data, res.data.data);
     return res;
   } catch (error) {
     console.log(error);

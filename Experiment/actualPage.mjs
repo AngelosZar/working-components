@@ -8,16 +8,17 @@ import { rainyProdEndPoints } from "./modules.mjs";
 import { doFetchData } from "./modules.mjs";
 //      ------- Working on -------
 // creating cart component
-const createCart = function () {
+function createCart() {
   const cart = localStorage.getItem("cart");
   console.log("yabadabadu1");
   if (!cart) {
     localStorage.setItem("cart", JSON.stringify([]));
   }
   console.log("yabadabadu2");
-};
+}
+
 const addToCart = function (product) {
-  console.log("gotcha");
+  console.log("add to cart", product);
 };
 //      ------- Working on -------
 //  generate html from the rainydays array
@@ -69,7 +70,14 @@ function genProdHtml(raincoat) {
   const productTtl = document.createElement("p");
   const productDescription = document.createElement("p");
   const productPrice = document.createElement("p");
+  //    ------- button add to cart -------
   const buyItem = document.createElement("button");
+  buyItem.classList.add("buyProdButton");
+  buyItem.textContent = "Add to cart ";
+  buyItem.addEventListener("click", () => {
+    console.log("id", raincoat.id);
+    addToCart(raincoat);
+  });
   // If I later filter with items on sale
   // const isProductOnSale = "";
   //                  insert image how?
@@ -79,7 +87,6 @@ function genProdHtml(raincoat) {
   //       ------- declaration from api -------
   productTtl.textContent = raincoat.title;
   productDescription.textContent = raincoat.description;
-  buyItem.textContent = "Add to cart ";
   // Change the int of price to num
   productPrice.textContent = raincoat.price;
   //       ------- styles/classes and ids -------
@@ -104,17 +111,29 @@ function genProdHtml(raincoat) {
   return prodCardContainer;
 }
 // Display html to the DOM
-const displayRainCoatsLi = async function (rainCoats) {
+function displayRainCoatsLi(rainCoats) {
   const displayContainer = document.querySelector("#display-container");
   rainCoats.data.forEach((rainCoat) => {
     const ProdHtml = genProdHtml(rainCoat);
     displayContainer.appendChild(ProdHtml);
   });
-};
-const main = async function () {
-  createCart();
-  const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
-  displayRainCoatsLi(rainCoats);
-};
+}
+// async function main() {
+//   createCart();
+//   const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
+//   // const raincoats = rainCoats.data;
+//   displayRainCoatsLi(rainCoats);
+// }
+
+async function main() {
+  try {
+    const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
+    // const rainCoats = data;
+    // or save to localstorage
+    displayRainCoatsLi(rainCoats);
+  } catch (error) {
+    console.error();
+  }
+}
 
 main();
