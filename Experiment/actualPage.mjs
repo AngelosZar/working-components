@@ -104,17 +104,17 @@ function genProdHtml(raincoat) {
   return prodCardContainer;
 }
 // Display html to the DOM
-async function displayRainCoatsLi(rainCoats) {
+const displayRainCoatsLi = async function (rainCoats) {
   const displayContainer = document.querySelector("#display-container");
   rainCoats.data.forEach((rainCoat) => {
     const ProdHtml = genProdHtml(rainCoat);
     displayContainer.appendChild(ProdHtml);
   });
-}
-async function main() {
+};
+const main = async function () {
   createCart();
   const { data: rainCoats } = await doFetchData(rainyProdEndPoints);
   displayRainCoatsLi(rainCoats);
-}
+};
 
 main();
